@@ -18,8 +18,7 @@ app.post("/process-video", (req, res) => {
             res.status(200).send("Success: Video Successfully Processed.");
         })
         .on("error", function(err: any) {
-            console.log(`An error occurred: ${err.message}`);
-            res.status(500).send("Internal Server Error: Unable to Process Video.");
+            res.status(500).send(`Internal Server Error: ${err.message}.`);
         })
         .save(outputVideoPath);
 });
